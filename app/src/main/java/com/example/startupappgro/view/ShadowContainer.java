@@ -37,7 +37,7 @@ public class ShadowContainer extends ViewGroup {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ShadowContainer);
         int shadowColor = a.getColor(R.styleable.ShadowContainer_containerShadowColor, 0);
 //      int shadowColor = Color.RED;
-        float shadowRadius = a.getDimension(R.styleable.ShadowContainer_containerShadowRadius, 0);
+        float shadowRadius = a.getDimension(R.styleable.ShadowContainer_containerShadowRadius, Color.YELLOW);
         deltaLength = a.getDimension(R.styleable.ShadowContainer_containerDeltaLength, 0);
         cornerRadius = a.getDimension(R.styleable.ShadowContainer_containerCornerRadius, 0);
         float dx = a.getDimension(R.styleable.ShadowContainer_deltaX, 0);
@@ -68,21 +68,7 @@ public class ShadowContainer extends ViewGroup {
             int top = child.getTop();
             int right = child.getRight();
             int bottom = child.getBottom();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                canvas.drawRoundRect(left, top, right, bottom, cornerRadius, cornerRadius, mShadowPaint);
-            } else {
-                Path drawablePath = new Path();
-                drawablePath.moveTo(left + cornerRadius, top);
-                drawablePath.arcTo(new RectF(left, top, left + 2 * cornerRadius, top + 2 * cornerRadius), -90, -90, false);
-                drawablePath.lineTo(left, bottom - cornerRadius);
-                drawablePath.arcTo(new RectF(left, bottom - 2 * cornerRadius, left + 2 * cornerRadius, bottom), 180, -90, false);
-                drawablePath.lineTo(right - cornerRadius, bottom);
-                drawablePath.arcTo(new RectF(right - 2 * cornerRadius, bottom - 2 * cornerRadius, right, bottom), 90, -90, false);
-                drawablePath.lineTo(right, top + cornerRadius);
-                drawablePath.arcTo(new RectF(right - 2 * cornerRadius, top, right, top + 2 * cornerRadius), 0, -90, false);
-                drawablePath.close();
-                canvas.drawPath(drawablePath, mShadowPaint);
-            }
+            canvas.drawRoundRect(left, top, right, bottom, cornerRadius, cornerRadius, mShadowPaint);
         }
         super.dispatchDraw(canvas);
     }

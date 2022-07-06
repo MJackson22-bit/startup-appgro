@@ -34,13 +34,16 @@ class PresentationActivity : AppCompatActivity() {
         binding.viewPaper2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
         val indicator = binding.indicator
         binding.viewPaper2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            @RequiresApi(Build.VERSION_CODES.Q)
-            @SuppressLint("ResourceAsColor", "ResourceType")
             override fun onPageSelected(position: Int) {
-                if (position == 0) {
-                    binding.shadow.setBackgroundColor(getColor(R.color.animalDeg))
-                } else if (position == 1) {
-                    binding.shadow.setBackgroundColor(getColor(R.color.plantDeg))
+                when (position) {
+                    0 -> {
+                        binding.shadow.elevationShadowColor = getColorStateList(R.color.animal)
+                    }
+                    1 -> {
+                        binding.shadow.elevationShadowColor = getColorStateList(R.color.plant)
+                    }
+                    else -> Toast.makeText(this@PresentationActivity, "Error", Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
         })

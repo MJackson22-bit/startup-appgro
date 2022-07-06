@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StartUpAppGro">
         <activity
+            android:name=".AnimalGamesActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.startupappgro.plant.camera.CameraAnimalActivity"
             android:exported="false" />
         <activity

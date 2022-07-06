@@ -128,4 +128,7 @@
     <string name="juana_p_rez">Juana Pérez</string>
     <string name="sit_e_el_da_o_del_cultivo_dentro_del_marco">Sitúe el daño del cultivo dentro del marco</string>
     <string name="estado">Estado</string>
+    <string name="hogar">Hogar</string>
+    <string name="fuera_de_casa">Fuera de casa</string>
+    <string name="entrenamiento">Entrenamiento</string>
 </resources>

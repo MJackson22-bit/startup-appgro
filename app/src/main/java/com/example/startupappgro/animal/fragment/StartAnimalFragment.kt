@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.startupappgro.animal.AddMascotaActivity
 import com.example.startupappgro.animal.AlimentacionActivity
+import com.example.startupappgro.animal.AnimalGamesActivity
 import com.example.startupappgro.databinding.FragmentStartAnimalBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -64,14 +65,16 @@ class StartAnimalFragment : Fragment() {
         binding.cardOther.setOnClickListener {
             startActivity(Intent(activity, AlimentacionActivity::class.java))
         }
-        binding.cardCuidados.setOnClickListener{
-            Snackbar.make(binding.ivAdd, "Esta opción aún no está disponible", Toast.LENGTH_SHORT).show()
+        binding.cardCuidados.setOnClickListener {
+            Snackbar.make(binding.ivAdd, "Esta opción aún no está disponible", Toast.LENGTH_SHORT)
+                .show()
         }
-        binding.cardJuegos.setOnClickListener{
-            Snackbar.make(binding.ivAdd, "Esta opción aún no está disponible", Toast.LENGTH_SHORT).show()
+        binding.constraintGame.setOnClickListener {
+            startActivity(Intent(context, AnimalGamesActivity::class.java))
         }
-        binding.cardSalud.setOnClickListener{
-            Snackbar.make(binding.ivAdd, "Esta opción aún no está disponible", Toast.LENGTH_SHORT).show()
+        binding.cardSalud.setOnClickListener {
+            Snackbar.make(binding.ivAdd, "Esta opción aún no está disponible", Toast.LENGTH_SHORT)
+                .show()
         }
 
     }
